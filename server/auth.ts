@@ -36,6 +36,8 @@ export function setupAuth(app: Express) {
     store: storage.sessionStore,
     cookie: {
       maxAge: 24 * 60 * 60 * 1000, // 1 day
+      // In production, you would want secure:true, but for local development:
+      secure: process.env.NODE_ENV === 'production'
     }
   };
 

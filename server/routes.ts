@@ -9,6 +9,26 @@ import axios from "axios";
 const API_KEY = process.env.EXCHANGE_RATE_API_KEY || "demo";
 const API_URL = "https://v6.exchangerate-api.com/v6";
 
+// Sample fallback rates if API is unavailable
+const FALLBACK_RATES = {
+  USDEUR: 0.92,
+  USDGBP: 0.79,
+  USDJPY: 134.08,
+  USDCAD: 1.35,
+  USDAUD: 1.49,
+  USDCHF: 0.89,
+  USDCNY: 7.11,
+  USDINR: 82.08,
+  USDBRL: 4.91,
+  EURUSD: 1.09,
+  EURGBP: 0.86,
+  EURJPY: 145.74,
+  GBPUSD: 1.27,
+  GBPEUR: 1.16,
+  GBPJPY: 169.72,
+  timestamp: new Date().toISOString()
+};
+
 // Cache exchange rates for 30 minutes
 let ratesCache: any = null;
 let ratesCacheTime: number = 0;
@@ -57,22 +77,9 @@ async function fetchExchangeRates() {
       return ratesCache;
     }
     
-    // Return mock data for demo/fallback
-    return {
-      USDEUR: 0.92,
-      USDGBP: 0.79,
-      USDJPY: 134.08,
-      USDCAD: 1.35,
-      USDAUD: 1.49,
-      USDCHF: 0.89,
-      USDCNY: 7.11,
-      USDINR: 82.08,
-      USDBRL: 4.91,
-      EURUSD: 1.09,
-      EURGBP: 0.86,
-      EURJPY: 145.74,
-      timestamp: new Date().toISOString()
-    };
+    // Return fallback data
+    console.log("Using fallback exchange rates");
+    return FALLBACK_RATES;
   }
 }
 
