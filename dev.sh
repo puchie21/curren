@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Starting CurrencyPro in development mode..."
+npx tsx server/index.ts

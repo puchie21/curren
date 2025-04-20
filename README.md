@@ -47,10 +47,23 @@ A full-stack application for currency conversion with user authentication, real-
 
 ## Running the Application
 
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
+### Development Mode
+
+#### Using npm:
+```bash
+npm run dev
+```
+
+#### Using scripts:
+- On Linux/Mac:
+  ```bash
+  chmod +x dev.sh  # Make executable (first time only)
+  ./dev.sh
+  ```
+- On Windows:
+  ```
+  dev-win.bat
+  ```
 
 2. Open your browser and navigate to:
    ```
@@ -75,9 +88,22 @@ A full-stack application for currency conversion with user authentication, real-
    ```
 
 2. Start the production server:
+
+   #### Using npm:
    ```bash
    npm start
    ```
+
+   #### Using scripts:
+   - On Linux/Mac:
+     ```bash
+     chmod +x start.sh  # Make executable (first time only)
+     ./start.sh
+     ```
+   - On Windows:
+     ```
+     start-win.bat
+     ```
 
 ## Notes for Local Development
 
